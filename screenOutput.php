@@ -15,10 +15,9 @@ include_once('retrieve.php');
 		<div class="left_Side">
 			<div class="profileText">
 				<div class="imgBx">
-					<img src=
 					<?php
-						echo "'". $uploadPhoto . "'";
-					?>>
+						echo '<img src="data:image/png;base64,'.$uploadPhoto.'"/>';
+					?>
 				</div>
 				<h2>
 					<?php

@@ -3,11 +3,15 @@
 include ('DBconnection.php');
 
 // insert table users
+$imagePath = 'https://i.pinimg.com/originals/ee/f4/4c/eef44ce61bce4df845e5d3f390269c37.jpg';
+$imageData = file_get_contents($imagePath);
+$imageData = base64_encode($imageData); 
+
 $sql = "INSERT INTO users(first_name, last_name, wanted_job, country, city, 
 address, date_of_birth, upload_photo,email, profile)
 VALUES ('Hieu', 'Nguyen',  'software engineer', 'Vietnam', 'Ho Chi Minh', 
 '23 Hai Ba Trung street', '2003-01-01', 
-'https://cdn.britannica.com/84/73184-050-05ED59CB/Sunflower-field-Fargo-North-Dakota.jpg?w=400&h=300&c=crop',
+'$imageData',
 'hieu.nguyenminh', 'I am tired of coding')";
 
 if ($conn->query($sql) === TRUE) {

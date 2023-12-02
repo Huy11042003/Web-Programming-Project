@@ -12,7 +12,7 @@ $sql = "CREATE TABLE users (
     city VARCHAR(50) NOT NULL,
     address VARCHAR(50) NOT NULL,
     date_of_birth DATE NOT NULL,
-    upload_photo VARCHAR(225) NOT NULL,
+    upload_photo BLOB,
     email VARCHAR(100) NOT NULL,
     profile VARCHAR(200) NOT NULL
 
