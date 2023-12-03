@@ -1,5 +1,6 @@
 <?php
 include './head.php';
+session_start();
 ?>
 
 <body>
@@ -11,16 +12,13 @@ include './head.php';
 
         <ul class="navbar-nav mb-2 mb-lg-0 d-flex flex-row" style="margin-left:50px;">
             <li class="nav-item">
-                <a id="searchBtn" class="btn btn-outline-primary btn-lg rounded-pill" style="margin-right:10px; margin-left:10px;" href="viewCV/viewMain.php">View CV</a>
-            </li>
-            <li class="nav-item">
-                <a id="addBtn" class="btn btn-outline-primary btn-lg rounded-pill" style="margin-right: 10px;" href="printCV/printMain.php">Print CV</a>
+                <a id="addBtn" class="btn btn-outline-primary btn-lg rounded-pill" style="margin-right: 10px;" href="printCV/printMain.php">CV View</a>
             </li>
         </ul>
 
         <ul class="navbar-nav mb-2 mb-lg-0 d-flex flow-row ms-auto" style="margin-right:50px;">
             <li class="nav-item">
-                <button id="addBtn" class="btn btn-outline-primary btn-lg rounded-pill" style="margin-right: 10px;">Log out</button>
+                <form method="post" action="logoutProcessing.php" id="addBtn" class="btn btn-outline-primary btn-lg rounded-pill" style="margin-right: 10px;">Log out</form>
             </li>
         </ul>
     </div>
