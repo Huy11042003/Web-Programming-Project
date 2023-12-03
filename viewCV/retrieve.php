@@ -2,21 +2,25 @@
 include('../createDatabase/DBconnection.php');
 
 session_start();
+if (!isset($_SESSION['user_id'])) {
+    header("Location: ../login.php");
+    exit();
+}
 
-$targetUserId = 1;
+$targetUserId = $_SESSION['user_id'];
 $listUser = [];
 $listExpJob = [];
 $listSkills = [];
 $listCertificates = [];
 $certificate = [
-    'name', 
+    'name',
     'description'
 ];
 $Skill = [
     'name'
 ];
 $expJob = [
-    'startDate', 
+    'startDate',
     'endDate',
     'job',
     'description'
@@ -113,28 +117,28 @@ if ($userResult->num_rows > 0) {
 // retrieve data from user_education
 $sql = "SELECT * FROM user_education";
 $result = $conn->query($sql);
-if($result->num_rows > 0){
-    while($userRow = $result->fetch_assoc()){
+if ($result->num_rows > 0) {
+    while ($userRow = $result->fetch_assoc()) {
         $userEdu['startDate'] = $userRow['edu_startDay'];
         $userEdu['endDate'] = $userRow['edu_endDay'];
         $userEdu['degree'] = $userRow['edu_degree'];
         $userEdu['university'] = $userRow['edu_school'];
         array_push($listUser, $userEdu);
     }
-    
+
     // foreach($listUser as $value){
     //     echo print_r($value);
     //     echo "</br>";
     // }
     // die();
-    
+
 }
 
 // retrieve data from user_languages
 $sql = "SELECT * FROM user_languages";
 $result = $conn->query($sql);
-if($result->num_rows > 0){
-    while($userRow = $result->fetch_assoc()){
+if ($result->num_rows > 0) {
+    while ($userRow = $result->fetch_assoc()) {
         array_push($userEdu['languages'], $userRow['languages']);
     }
 }
@@ -142,8 +146,8 @@ if($result->num_rows > 0){
 // retrieve data from user_experience
 $sql = "SELECT * FROM user_experience";
 $result = $conn->query($sql);
-if($result->num_rows > 0){
-    while($userRow = $result->fetch_assoc()){
+if ($result->num_rows > 0) {
+    while ($userRow = $result->fetch_assoc()) {
         $expJob['startDate'] = $userRow['exp_startDay'];
         $expJob['endDate'] = $userRow['exp_endDay'];
         $expJob['job'] = $userRow['exp_job'];
@@ -155,8 +159,8 @@ if($result->num_rows > 0){
 // retrieve data from user_skills
 $sql = "SELECT * FROM user_skills";
 $result = $conn->query($sql);
-if($result->num_rows > 0){
-    while($userRow = $result->fetch_assoc()){
+if ($result->num_rows > 0) {
+    while ($userRow = $result->fetch_assoc()) {
         $Skill['name'] = $userRow['skills'];
         array_push($listSkills, $Skill);
     }
@@ -165,8 +169,8 @@ if($result->num_rows > 0){
 // retrieve data from user_phonenumber
 $sql = "SELECT * FROM user_phonenumber";
 $result = $conn->query($sql);
-if($result->num_rows > 0){
-    while($userRow = $result->fetch_assoc()){
+if ($result->num_rows > 0) {
+    while ($userRow = $result->fetch_assoc()) {
         array_push($userEdu['phoneNumber'], $userRow['phone_number']);
     }
 }
@@ -174,8 +178,8 @@ if($result->num_rows > 0){
 // retrieve data from user_certification
 $sql = "SELECT * FROM user_certification";
 $result = $conn->query($sql);
-if($result->num_rows > 0){
-    while($userRow = $result->fetch_assoc()){
+if ($result->num_rows > 0) {
+    while ($userRow = $result->fetch_assoc()) {
         $certificate['name'] = $userRow['certi_name'];
         $certificate['description'] = $userRow['certi_description'];
         array_push($listCertificates, $certificate);
@@ -183,4 +187,3 @@ if($result->num_rows > 0){
 }
 
 $conn->close();
-?>
