@@ -17,26 +17,24 @@ $sql = "CREATE TABLE users (
 
 )";
 
-if ($conn->query($sql) === TRUE){
+if ($conn->query($sql) === TRUE) {
     echo "Successfully created table products";
-}
-else{
+} else {
     echo "ERROR creating table products" . $conn->error;
 }
 
-// create Account table
+//  create table account
 $sql = "CREATE TABLE user_login (
-    login_id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-    user_id INT (6) UNSIGNED,
-    login_username VARCHAR(30) NOT NULL,
-    login_password VARCHAR(255) NOT NULL,
-    FOREIGN KEY (user_id) REFERENCES users(user_id)
+        login_id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+        user_id INT (6) UNSIGNED,
+        login_username VARCHAR(30) NOT NULL,
+        login_password VARCHAR(255) NOT NULL,
+        FOREIGN KEY (user_id) REFERENCES users(user_id)
  )";
 
-if ($conn->query($sql) === TRUE){
+if ($conn->query($sql) === TRUE) {
     echo "Successfully created table products";
-}
-else{
+} else {
     echo "ERROR creating table products" . $conn->error;
 }
 
@@ -47,10 +45,9 @@ $sql = "CREATE TABLE user_phoneNumber (
     phone_number VARCHAR(10) NOT NULL,
     FOREIGN KEY (user_id) REFERENCES users(user_id)
 )";
-if ($conn->query($sql) === TRUE){
+if ($conn->query($sql) === TRUE) {
     echo "Successfully created table products";
-}
-else{
+} else {
     echo "ERROR creating table products" . $conn->error;
 }
 
@@ -64,10 +61,9 @@ $sql = "CREATE TABLE user_experience (
     exp_description VARCHAR (200),
     FOREIGN KEY (user_id) REFERENCES users(user_id)
 )";
-if ($conn->query($sql) === TRUE){
+if ($conn->query($sql) === TRUE) {
     echo "Successfully created table products";
-}
-else{
+} else {
     echo "ERROR creating table products" . $conn->error;
 }
 
@@ -82,10 +78,9 @@ $sql = "CREATE TABLE user_education (
     edu_description VARCHAR (200),
     FOREIGN KEY (user_id) REFERENCES users(user_id)
 )";
-if ($conn->query($sql) === TRUE){
+if ($conn->query($sql) === TRUE) {
     echo "Successfully created table products";
-}
-else{
+} else {
     echo "ERROR creating table products" . $conn->error;
 }
 
@@ -97,10 +92,9 @@ $sql = "CREATE TABLE user_certification (
     certi_description VARCHAR (200),
     FOREIGN KEY (user_id) REFERENCES users(user_id)
 )";
-if ($conn->query($sql) === TRUE){
+if ($conn->query($sql) === TRUE) {
     echo "Successfully created table products";
-}
-else{
+} else {
     echo "ERROR creating table products" . $conn->error;
 }
 
@@ -111,10 +105,9 @@ $sql = "CREATE TABLE user_skills (
     skills VARCHAR(50) NOT NULL,
     FOREIGN KEY (user_id) REFERENCES users(user_id)
 )";
-if ($conn->query($sql) === TRUE){
+if ($conn->query($sql) === TRUE) {
     echo "Successfully created table products";
-}
-else{
+} else {
     echo "ERROR creating table products" . $conn->error;
 }
 
@@ -125,10 +118,8 @@ $sql = "CREATE TABLE user_languages (
     languages VARCHAR(50) NOT NULL,
     FOREIGN KEY (user_id) REFERENCES users(user_id)
 )";
-if ($conn->query($sql) === TRUE){
+if ($conn->query($sql) === TRUE) {
     echo "Successfully created table products";
-}
-else{
+} else {
     echo "ERROR creating table products" . $conn->error;
 }
-?>

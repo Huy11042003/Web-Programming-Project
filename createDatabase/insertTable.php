@@ -21,16 +21,6 @@ if ($conn->query($sql) === TRUE) {
   echo "Error: " . $sql . "<br>" . $conn->error;
 }
 
-$pass = md5('user1');
-$sql = "INSERT INTO account(user_id, username, password)
-VALUES ('1, 'user1',  '$pass')";
-
-if ($conn->query($sql) === TRUE) {
-  echo "New record created successfully";
-} else {
-  echo "Error: " . $sql . "<br>" . $conn->error;
-}
-
 // insert table certification
 $sql = "INSERT INTO user_certification(user_id, certi_name, 
 certi_description)
@@ -102,4 +92,15 @@ if ($conn->query($sql) === TRUE) {
 } else {
   echo "Error: " . $sql . "<br>" . $conn->error;
 }
+
+$pass = md5('user1');
+$sql = "INSERT INTO user_login(user_id, login_username, login_password) VALUES ('1', 'user1', '$pass');";
+
+if ($conn->query($sql) === TRUE) {
+  echo "New record created successfully";
+} else {
+  echo "Error: " . $sql . "<br>" . $conn->error;
+}
+
+
 ?>
