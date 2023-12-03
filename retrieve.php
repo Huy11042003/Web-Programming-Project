@@ -1,7 +1,9 @@
 <?php
-include('DBconnection.php');
+include('createDatabase/DBconnection.php');
 
-$targetUserId = 1;
+session_start();
+
+$targetUserId = $_SESSION['user_id'];
 $listUser = [];
 $listExpJob = [];
 $listSkills = [];
