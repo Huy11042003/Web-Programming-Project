@@ -102,7 +102,7 @@ if ($userResult->num_rows > 0) {
     //     echo "- Name: {$certificate['name']}, Description: {$certificate['description']}<br>";
     // }
 
-    // echo "<img src='$uploadPhoto' alt='User Photo'><br>";
+    // echo '<img src="data:image/png;base64,'.$uploadPhoto.'"/>' alt='User Photo'><br>";
     // echo "<hr>";
 } else {
     die("No records found for user ID $targetUserId");

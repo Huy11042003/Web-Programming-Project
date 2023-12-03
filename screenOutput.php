@@ -9,16 +9,18 @@ include_once('retrieve.php');
 	<title>Output CV Screen</title>
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" integrity="sha512-5A8nwdMOWrSz20fDsjczgUidUBR8liPYU+WymTZP1lmY9G6Oc7HlZv156XqnsgNUzTyMefFTcsFH/tnJE/+xBg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 	<link rel="stylesheet" href="outputStyle.css?v=<?php echo time(); ?>">
+	<script src="pdf.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.js"></script>
+
 </head>
 <body>
-	<div class="container">
+	<div class="container" id="cv">
 		<div class="left_Side">
 			<div class="profileText">
 				<div class="imgBx">
-					<img src=
 					<?php
-						echo "'". $uploadPhoto . "'";
-					?>>
+						echo '<img src="data:image/png;base64,'.$uploadPhoto.'"/>';
+					?>
 				</div>
 				<h2>
 					<?php
@@ -190,6 +192,7 @@ include_once('retrieve.php');
 			</div>
 		</div>
 
+		<button type="button" class="btn btn-secondary" id="download">Export to PDF file</button>
 
 	</div>
 </body>

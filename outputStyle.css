@@ -19,7 +19,7 @@ body
 	max-width: 1000px;
 	min-height: 100px;
 	background: #fff;
-	margin: 50px;
+	margin: 20px;
 	display: grid;
 	grid-template-columns: 1fr 2fr;
 	box-shadow: 0 35px 55px rgba(0,0,0,0.1);
@@ -201,4 +201,19 @@ p{
 	text-transform: uppercase;
 	color: #848c99;
 	font-weight: 500;
+}
+.btn-secondary {
+    position: fixed;
+    top: 20px; 
+    right: 20px; 
+    padding: 15px 25px;
+    background-color: #091921;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.btn-secondary:hover {
+	background-color: #ddd; 
 }
